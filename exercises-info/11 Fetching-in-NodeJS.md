@@ -60,10 +60,10 @@ data
   .then(res => res.json())
   // log and return the JS array 
   .then(data => {
-    console.log(data))
+    console.log(data)
     return data;
-  }
-  // catch and log the error if occures
+  })
+  // catch and log the error if occurs
   .catch (e => console.log(e))
 ```
 

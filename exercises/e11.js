@@ -13,6 +13,7 @@
  * * set the usersUrl constant to store the json-server 'users' endpoint path
 */
 
+import fetch from "node-fetch";
 export const usersUrl = 'http://localhost:3000/users/';
 
 /**
@@ -26,10 +27,10 @@ export const usersUrl = 'http://localhost:3000/users/';
  * Example: const getLoginList = (data) => {<Your code>}
 */
 
-// Your code goes here ...
-const getLoginList = () => {
-  // Your code goes here...
-
+const getLoginList = (data) => {
+  let array = [];
+  data.forEach((obj) => array.push(obj.login))
+  return array;
 }
 
 /**
@@ -39,8 +40,7 @@ const getLoginList = () => {
  * example: const getData = <node_fetch_function_call>
 */
 
-// Your code goes here ...
-const getData;
+const getData = fetch(usersUrl);
 
 /**
  * @task 
@@ -53,8 +53,16 @@ const getData;
  *  .then(<Your_logging_and_return_code>)
 */
 
-// Your code goes here ...
-export const result = getData;
+export const result = 
+  getData
+    .then((res) => res.json())
+    .then((res) => {
+      let loginList = getLoginList(res)
+      console.log(loginList)
+      return loginList
+    });
+    
+
 
 
 // === TEST YOURSELF ===

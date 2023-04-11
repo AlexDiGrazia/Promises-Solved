@@ -15,7 +15,11 @@ const promiseArr = [promise1, promise2, promise3, promise4];
  * when promiseArr was passed as the argument
  */
 
-export const result1 = val // Your code here
+export const result1 = 
+  Promise
+    .all(promiseArr)
+    .catch((err) => err)
+
 
 
 /**
@@ -23,7 +27,7 @@ export const result1 = val // Your code here
  * Use a correct PROMISE shortcut that will log and return the resolved value of promise3;
  */
 
-export const result2 = val // Your code here
+export const result2 =  Promise.any(promiseArr);
 
 
 /**
@@ -31,7 +35,7 @@ export const result2 = val // Your code here
  * Use a correct PROMISE shortcut that will log and return an array of all promises statuses and values/reasons;
 */
 
-export const result3 = val // Your code here 
+export const result3 =  Promise.allSettled(promiseArr);
 
 
 /**
@@ -41,7 +45,8 @@ export const result3 = val // Your code here
  * You can use any array methods you know.
  */
 
-let newPromiseArr; // Your code here
+let newPromiseArr = promiseArr
+newPromiseArr.splice(1,2)
 
 export const result4 = Promise.race(newPromiseArr)
   .then((data) => {

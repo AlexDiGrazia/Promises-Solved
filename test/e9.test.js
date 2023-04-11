@@ -1,17 +1,17 @@
 import { vitest, it, describe, expect, beforeEach } from "vitest";
-import { handlePromise, iterate, alwaysThrows, onReject } from '../exercises/e9.js';
+import { promise, iterate, alwaysThrows, onReject } from '../exercises/e9.js';
 
 describe('Promise variable test', () => {
   it('Promise variable should exist', () => {
-    expect(handlePromise).toBeInstanceOf(Object);
+    expect(promise).toBeInstanceOf(Object);
   })
   it('Promise constructor should have a name of Promise', () => {
-    expect(handlePromise.constructor.name).toEqual('Promise');
+    expect(promise.constructor.name).toEqual('Promise');
   })
 });
 
 describe('iterate function test', () => {
-  it('Shoule return an incremented value', () => {
+  it('Should return an incremented value', () => {
     expect(iterate(10)).toEqual(11);
   })
   it('Should log the argument value', () => {
@@ -23,13 +23,13 @@ describe('iterate function test', () => {
 });
 
 describe('alwaysThrow function test', () => {
-  it('Shoule return an error', () => {
+  it('Should return an error', () => {
     expect(alwaysThrows).toThrow(new Error('OH NOES'));
   });
 });
 
 describe('onReject function test', () => {
-  it('Shoule log the error message', () => {
+  it('Should log the error message', () => {
     const logSpy = vitest.spyOn(console, "log");
     onReject(new Error('OH NOES'));
     expect(logSpy).toBeCalledWith('OH NOES');

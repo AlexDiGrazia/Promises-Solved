@@ -30,8 +30,8 @@ Code sample:
 ```JS
 
 export const result = async () => {
-  const promise =  // Promise constructor with the fulfill function>
-  promise.then(/* log the promise resolved value */)
+  const promise =  new Promises((resolve, reject) => resolve('PROMISE VALUE'))
+  promise.then((data) => console.log(data))
   console.log('MAIN PROGRAM');
 }
 

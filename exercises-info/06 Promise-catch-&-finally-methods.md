@@ -1,4 +1,4 @@
-# PROMISES .catch() && .finally() methods #
+ # PROMISES .catch() && .finally() methods #
 
 In the previous exercises you've learned that the rejected promise reason can be handled by 
 the second argument of the `.then()` method:

@@ -7,6 +7,7 @@ The Promise can be in 1 of 3 states
 * **fulfilled**: meaning that the operation was completed successfully (resolved).
 * **rejected**: meaning that the operation failed.
 
+
 ```JS
 // Create a promise object
 const promiseName = new Promise(executor);
@@ -34,6 +35,7 @@ const executor = (resolve, reject) => {
 # PROMISE .then()
 
 The then() method of a Promise object takes up to two arguments: callback functions for the fulfilled and rejected cases of the Promise. It immediately returns an equivalent Promise object, allowing you to chain calls to other promise methods.
+
 
 #### The full syntax for a resolving Promise:
 ```JS

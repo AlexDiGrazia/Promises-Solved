@@ -19,9 +19,15 @@
  *          }
  */
 
-// Your code goes here...
-export function parsePromised() {
-  // Your code goes here...
+
+export function parsePromised(json) {
+  return new Promise((resolve, reject) => {
+    try {
+      resolve(JSON.parse(json))
+    } catch (e) {
+      throw new Error('Unexpected token T in JSON at position 0');
+    }
+  })
 
 }
 
@@ -33,10 +39,9 @@ export function parsePromised() {
  * * logs the message property of the error object
  */
 
-// Your code goes here...
-export function onReject() {
-  // Your code goes here...
 
+export function onReject(err) {
+  console.log(err.message)
 }
 
 /**
@@ -51,9 +56,21 @@ export function onReject() {
  * Example: export const promiseHandler = () => return <your code> 
  */
 
-// Your code goes here...
-export const handlePromise = () => {
-  // Your code goes here...
+
+export const handlePromise = (promise) => {
+   return promise
+      .then((res) => res)
+      .catch((reason) => {
+        if(reason.message) {
+          onReject(reason)
+        } else {
+           reason
+        }
+      })
+ 
+  
+    
+  
 }
 
 

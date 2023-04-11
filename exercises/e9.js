@@ -1,3 +1,5 @@
+
+
 /**
  * PROMISE ERROR HANDLER
  * Please, make sure to read the "09 An-important-rule.md" file in exercises-info folder
@@ -11,8 +13,9 @@
  * The function must be exported
  */
 
-export function iterate() {
-  // Your code goes here...
+export  function iterate(int) {
+  console.log(int)
+  return int + 1;
 }
 
 /**
@@ -22,7 +25,7 @@ export function iterate() {
  */
 
 export function alwaysThrows() {
-  // Your code goes here...
+  throw new Error('OH NOES')
 }
 
 /**
@@ -31,8 +34,8 @@ export function alwaysThrows() {
  * The function must be exported
  */
 
-export function onReject() {
-  // Your code goes here...
+export function onReject(arg) {
+  console.log(arg.message)
 }
 
 /**
@@ -48,7 +51,23 @@ export function onReject() {
  * * throw an error that will be handled by the catch() block and log the error message
  */
 
-export const promise;
+export const promise = 
+  Promise
+    .resolve(1)
+    .then((res) => iterate(res))
+    .then((res) => iterate(res))
+    .then((res) => iterate(res))
+    .then((res) => iterate(res))
+    .then((res) => iterate(res))
+    .then((res) => alwaysThrows())
+    .then((res) => iterate(res))
+    .then((res) => iterate(res))
+    .then((res) => iterate(res))
+    .then((res) => iterate(res))
+    .then((res) => iterate(res))
+    .catch((err) => onReject(err));
+
+
 
 
 

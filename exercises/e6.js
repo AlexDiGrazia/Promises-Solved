@@ -17,12 +17,10 @@
 // Your code goes here
 
 export const handlePromise = () => {
-  // Your code goes here...
-  
+ return Promise.reject('REJECTED')
+    .catch((err) => console.log(err))
+    .finally(() => console.log('This promise is finished!'))
 }
-
-
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-6"

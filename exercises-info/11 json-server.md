@@ -3,7 +3,7 @@
 "json-server" package is a fake-API  generator package that can be set in 30 seconds. 
 To start using it you need to make just a couple of steps:
 
-1. Install json-server witht he following command:
+1. Install json-server with the following command:
 
 ```npm install -g json-server```
 
