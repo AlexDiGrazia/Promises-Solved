@@ -28,9 +28,7 @@ export const usersUrl = 'http://localhost:3000/users/';
 */
 
 const getLoginList = (data) => {
-  let array = [];
-  data.forEach((obj) => array.push(obj.login))
-  return array;
+  return data.map((obj) => obj.login)
 }
 
 /**

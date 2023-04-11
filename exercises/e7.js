@@ -3,7 +3,7 @@
  * Please, make sure to read the following files in exercise-info folder before you start:
  * * "07 To-reject-or-to-resolve.md"
  * * "07 Error-handling.md"
-*/
+ */
 
 /**
  * @task
@@ -19,18 +19,15 @@
  *          }
  */
 
-
 export function parsePromised(json) {
   return new Promise((resolve, reject) => {
     try {
-      resolve(JSON.parse(json))
+      resolve(JSON.parse(json));
     } catch (e) {
-      throw new Error('Unexpected token T in JSON at position 0');
+      throw e;
     }
-  })
-
+  });
 }
-
 
 /**
  * @task
@@ -39,9 +36,8 @@ export function parsePromised(json) {
  * * logs the message property of the error object
  */
 
-
 export function onReject(err) {
-  console.log(err.message)
+  console.log(err.message);
 }
 
 /**
@@ -53,28 +49,20 @@ export function onReject(err) {
  * * * if the reason has a message property returns the onReject function call with the error passed as an argument if the promise rejects
  * * * else return the reason
  * The handlePromise() function must be exported
- * Example: export const promiseHandler = () => return <your code> 
+ * Example: export const promiseHandler = () => return <your code>
  */
 
-
 export const handlePromise = (promise) => {
-   return promise
-      .then((res) => res)
-      .catch((reason) => {
-        if(reason.message) {
-          onReject(reason)
-        } else {
-           reason
-        }
-      })
- 
-  
-    
-  
-}
-
-
-
+  return promise
+    .then((res) => res)
+    .catch((reason) => {
+      if (reason.message) {
+        onReject(reason);
+      } else {
+        reason;
+      }
+    });
+};
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-7"

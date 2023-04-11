@@ -54,18 +54,18 @@ export function onReject(arg) {
 export const promise = 
   Promise
     .resolve(1)
-    .then((res) => iterate(res))
-    .then((res) => iterate(res))
-    .then((res) => iterate(res))
-    .then((res) => iterate(res))
-    .then((res) => iterate(res))
-    .then((res) => alwaysThrows())
-    .then((res) => iterate(res))
-    .then((res) => iterate(res))
-    .then((res) => iterate(res))
-    .then((res) => iterate(res))
-    .then((res) => iterate(res))
-    .catch((err) => onReject(err));
+    .then(iterate)
+    .then(iterate)
+    .then(iterate)
+    .then(iterate)
+    .then(iterate)
+    .then(alwaysThrows)
+    .then(iterate)
+    .then(iterate)
+    .then(iterate)
+    .then(iterate)
+    .then(iterate)
+    .catch(onReject);
 
 
 
